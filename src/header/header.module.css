@@ -1,0 +1,52 @@
+.headerContainer{
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    background-color: #1d1c19;
+}
+.stickyHeader{
+    position: sticky;
+    top: 0%;
+}
+.button{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding-left: 1%;
+    padding-right: 1%;
+    text-decoration: none;
+    color: #fefdfb;
+}
+.button:hover{
+    text-decoration: underline;
+    transition: 1s;
+    background-color: #fefdfb;
+    color: #1d1c19;
+}
+.imageDiv{
+    margin-right: 2%;
+}
+.image{
+    height: 100%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.headerHeader{
+    display: flex;
+    color: #fefdfb;
+    align-items: center;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding-left: 10%;
+    padding-right: 25%;
+    width: 30%;
+}
+.headerLine{
+    margin: 0%;
+    background-color: #3167D3;
+    border: none;
+    height: 3px;
+}
