@@ -10,11 +10,11 @@ export default function Header() {
                     <div className={style.imageDiv}>
                         <img className={style.image} src="favicon.ico" />
                     </div>
-                    <Link className={style.button}>Plan Workout</Link>
-                    <Link className={style.button}>Monitor Progress</Link>
-                    <Link className={style.button}>Set Goals</Link>
+                    <Link className={style.button} to="/plan">Plan Workout</Link>
+                    <Link className={style.button} to="/monitor">Monitor Progress</Link>
+                    <Link className={style.button} to="/goals">Set Goals</Link>
                     <h2 className={style.headerHeader}>Workout Planner</h2>
-                    <Link className={style.button}>Login</Link>
+                    <Link className={style.button} to="/login">Login</Link>
                 </div>
                 <hr className={style.headerLine}></hr>
             </div>
