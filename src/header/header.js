@@ -14,7 +14,7 @@ export default function Header() {
                     <Link className={style.button} to="/monitor">Monitor Progress</Link>
                     <Link className={style.button} to="/goals">Set Goals</Link>
                     <h2 className={style.headerHeader}>Workout Planner</h2>
-                    <Link className={style.button} to="/login">Login</Link>
+                    <Link className={style.loginButton} to="/login">Login</Link>
                 </div>
                 <hr className={style.headerLine}></hr>
             </div>

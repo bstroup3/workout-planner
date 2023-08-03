@@ -19,6 +19,23 @@
     text-decoration: none;
     color: #fefdfb;
 }
+.loginButton{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+    text-decoration: none;
+    color: #fefdfb;
+}
+.loginButton:hover{
+    text-decoration: underline;
+    transition: 1s;
+    background-color: #fefdfb;
+    color: #1d1c19;
+}
 .button:hover{
     text-decoration: underline;
     transition: 1s;
@@ -41,7 +58,7 @@
     margin-top: 0%;
     margin-bottom: 0%;
     padding-left: 10%;
-    padding-right: 25%;
+    padding-right: 21%;
     width: 30%;
 }
 .headerLine{
