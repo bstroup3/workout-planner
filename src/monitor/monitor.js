@@ -124,6 +124,8 @@ export default function Monitor() {
             <div className={style.lineContainer}>
                 <hr className={style.lineRow} />
             </div>
+            {/* make a seperate linegraph.js to be able to map through the correct amount of exercises 
+            and pass in the exercise name and metrics to graph as well as dates EZPZ*/}
             <div className={style.mainContainer}>
                 <div className={style.lineChart}>
                 <Line data={data} />
