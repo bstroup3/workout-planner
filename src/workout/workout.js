@@ -4,8 +4,10 @@ import style from "./planWorkout.module.css"
 export default function Workout({workout}) {
   return (
     <div className={style.row}>
+        <div className={style.workoutNameDiv}>
         <h2 className={style.workoutName}>{workout.name}</h2>
-        <h2 className={style.workoutName}>{workout.type}</h2>
+        <h3 className={style.workoutName}>{workout.type}</h3>
+        </div>
         {
             workout.exercises.map((exercise) => {
                 return(

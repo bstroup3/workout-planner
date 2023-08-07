@@ -73,34 +73,52 @@ body{
     align-self: baseline;
     margin-left: 10vw;
     max-width: 80vw;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .column{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid white;
+    border: 1px solid #5480D9;
+    border-radius: 10px;
     text-align: center;
     min-width: 8vw;
     max-width: 8vw;
     padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .workoutName{
     padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid white;
-    border-collapse: collapse;
     max-width: 10vw;
     min-width: 10vw;
     text-align: center;
+}
+.workoutNameDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .workoutRow{
     display: flex;
     flex-direction: row;
     align-self: baseline;
     padding: 1vh;
+}
+.workoutRowDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: #5480D9 1px solid;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .button{
     height: 5vh;
@@ -121,6 +139,7 @@ body{
     height: 15px;
     background-color: red;
     padding: 2px;
+    display: flex;
     align-self: center;
     justify-self: center;
 }

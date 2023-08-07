@@ -34,7 +34,17 @@ body{
 }
 .lineChart{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 50vh;
     width: 40vw;
     margin: 30px;
+}
+.select{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fefdfb;
+
 }
