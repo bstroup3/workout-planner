@@ -3,6 +3,7 @@
     flex-direction: row;
     height: 60px;
     background-color: #1d1c19;
+    justify-content: space-between;
 }
 .stickyHeader{
     position: sticky;
@@ -14,8 +15,8 @@
     align-items: center;
     text-align: center;
     height: 100%;
-    padding-left: 1%;
-    padding-right: 1%;
+    padding-left: 1vw;
+    padding-right: 1vw;
     text-decoration: none;
     color: #fefdfb;
 }
@@ -25,8 +26,8 @@
     align-items: center;
     text-align: center;
     height: 100%;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 2vw;
+    padding-right: 2vw;
     text-decoration: none;
     color: #fefdfb;
 }
@@ -42,28 +43,36 @@
     background-color: #fefdfb;
     color: #1d1c19;
 }
-.imageDiv{
-    margin-right: 2%;
-}
 .image{
     height: 100%;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
 .headerHeader{
     display: flex;
     color: #fefdfb;
     align-items: center;
     height: 100%;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    padding-left: 10%;
-    padding-right: 21%;
-    width: 30%;
+    margin-top: 0vw;
+    margin-bottom: 0vw;
+    width: 20vw;
+    justify-content: center;
 }
 .headerLine{
     margin: 0%;
     background-color: #3167D3;
     border: none;
     height: 3px;
+    min-width: 100vw;
+}
+.pageButtons{
+    display: flex;
+    flex-direction: row;
+}
+.loginButtons{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.footer{
+    height: 15vh;
 }

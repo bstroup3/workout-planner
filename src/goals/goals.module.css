@@ -1,0 +1,98 @@
+body{
+    background-color: #1d1c19;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.headerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1d1c19;
+    color: #fefdfb;
+    height: 10vh;
+}
+.lineContainer{
+    display: flex;
+    width: 100%;
+}
+.lineRow{
+    border: none;
+    width: 50%;
+    height: 1px;
+    background-color: #fefdfb;
+}
+.mainContainer{
+    background-color: #1d1c19;
+    color: #fefdfb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.optionsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.option{
+    text-decoration: none;
+    color: #fefdfb;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 10px;
+}
+.option:hover{
+    background-color: #5480D9;
+}
+.selectedOption{
+    text-decoration: none;
+    color: #fefdfb;
+    background-color: #5480D9;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 10px;
+}
+.goalCards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.goal{
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px
+}
+.goalForm{
+    display: flex;
+    flex-direction: column;
+    margin: 3vh;
+}
+.dropdownDiv{
+    display: flex;
+    flex-direction: column;
+    margin: 1vh;
+}
+.button{
+    height: 5vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    color: #fefdfb;
+    background-color: #1d1c19;
+    border-color: #5480D9;
+    border-radius: 30%;
+    border-style: solid;
+    margin-top: 3vh;
+    width: 5vw;
+    align-self: center;
+}
+.button:hover{
+    transition: 1s;
+    background-color: #5480D9;
+}

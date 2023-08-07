@@ -1,0 +1,126 @@
+body{
+    background-color: #1d1c19;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.headerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1d1c19;
+    color: #fefdfb;
+    height: 10vh;
+}
+.lineContainer{
+    display: flex;
+    width: 100%;
+}
+.lineRow{
+    border: none;
+    width: 50%;
+    height: 1px;
+    background-color: #fefdfb;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.mainContainer{
+    background-color: #1d1c19;
+    color: #fefdfb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2%;
+}
+.optionsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.option{
+    text-decoration: none;
+    color: #fefdfb;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 10px;
+}
+.option:hover{
+    background-color: #5480D9;
+}
+.selectedOption{
+    text-decoration: none;
+    color: #fefdfb;
+    background-color: #5480D9;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 10px;
+}
+.workoutForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    align-self: baseline;
+    margin-left: 10vw;
+    max-width: 80vw;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    text-align: center;
+    min-width: 8vw;
+    max-width: 8vw;
+    padding: 10px;
+}
+.workoutName{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-collapse: collapse;
+    max-width: 10vw;
+    min-width: 10vw;
+    text-align: center;
+}
+.workoutRow{
+    display: flex;
+    flex-direction: row;
+    align-self: baseline;
+    padding: 1vh;
+}
+.button{
+    height: 5vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    color: #fefdfb;
+    background-color: #1d1c19;
+    border-color: #5480D9;
+    border-radius: 30%;
+    border-style: solid;
+    margin-top: 3vh;
+}
+.button:hover{
+    transition: 1s;
+    background-color: #5480D9;
+}
+.deleteButton{
+    height: 15px;
+    background-color: red;
+    padding: 2px;
+    align-self: center;
+    justify-self: center;
+}

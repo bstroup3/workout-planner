@@ -1,0 +1,40 @@
+body{
+    background-color: #1d1c19;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.headerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1d1c19;
+    color: #fefdfb;
+    height: 10vh;
+}
+.lineContainer{
+    display: flex;
+    width: 100%;
+}
+.lineRow{
+    border: none;
+    width: 50%;
+    height: 1px;
+    background-color: #fefdfb;
+}
+.mainContainer{
+    background-color: #1d1c19;
+    color: #fefdfb;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.lineChart{
+    display: flex;
+    height: 50vh;
+    width: 40vw;
+    margin: 30px;
+}
