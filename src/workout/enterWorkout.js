@@ -530,7 +530,7 @@ export default function EnterWorkout() {
                         workout.exercises.map((exercise) => 
                             (
                                 <div className={style.workoutRowDiv}>
-                                    <h2 style={{marginTop: '2vh'}}>{exercise.ename}</h2>
+                                    <h2>{exercise.ename}</h2>
                                     <div>
                                         {
                                             exercise.sets.map((set) => (

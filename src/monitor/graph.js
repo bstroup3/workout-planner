@@ -1,8 +1,8 @@
 import React from 'react'
 import style from "./monitor.module.css"
-import { Line } from 'react-chartjs-2'
+import { Line, annotation } from 'react-chartjs-2'
 
-export default function Graph({workouts, exercise}) {
+export default function Graph({ workouts, exercise }) {
 
     if (workouts == undefined || exercise == undefined) {
         return (
@@ -12,12 +12,22 @@ export default function Graph({workouts, exercise}) {
     else {
         const newWorkouts = workouts
 
+        const goals = [
+            {
+                userid: 12345,
+                goalid: 99999,
+                ename: "Bench Press",
+                reps: 8,
+                weight: 225
+            }
+        ]
+
         const weights = newWorkouts.map((workout) => (
             workout.exercises.filter((exercise1) => (exercise1.ename == exercise.ename))[0].sets.map((set) => (
                 set.weight
             )).slice(-2)
         ))
-        
+
         const reps = newWorkouts.map((workout) => (
             workout.exercises.filter((exercise1) => (exercise1.ename == exercise.ename))[0].sets.map((set) => (
                 set.reps
@@ -44,28 +54,28 @@ export default function Graph({workouts, exercise}) {
 
         const options = {
             scales: {
-              x: {
-                grid: {
-                  color: "rgba(255, 255, 255, 0.2)" // Set grid lines color to white with opacity
+                x: {
+                    grid: {
+                        color: "rgba(255, 255, 255, 0.2)" // Set grid lines color to white with opacity
+                    }
+                },
+                y: {
+                    grid: {
+                        color: "rgba(255, 255, 255, 0.2)" // Set grid lines color to white with opacity
+                    }
                 }
-              },
-              y: {
-                grid: {
-                  color: "rgba(255, 255, 255, 0.2)" // Set grid lines color to white with opacity
-                }
-              }
             },
             plugins: {
                 legend: {
-                  display: false // Hide the legend
+                    display: false // Hide the legend
                 }
-              }
-          };
+            }
+        };
 
         return (
             <div className={style.lineChart}>
                 <h2>{exercise.ename}</h2>
-                <Line data={data} options={options}/>
+                <Line data={data} options={options} />
             </div>
         )
     }

@@ -56,6 +56,7 @@ h1,h2,h3,h4{
     color: #fefdfb;
     height: 75vh;
     width: 100vw;
+    background-size: cover;
 }
 .section2{
     display: flex;
@@ -65,6 +66,7 @@ h1,h2,h3,h4{
     background-color: #5480D9;
     height: 75vh;
     min-width: 100vw;
+    background-size: cover;
 }
 .sectionImage{
     height: 75%;

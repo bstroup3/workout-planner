@@ -228,7 +228,7 @@ export default function Monitor() {
                                     weight: null
                                 },
                                 {
-                                    reps: 8,
+                                    reps: 10,
                                     weight: null
                                 },
                             ]
@@ -361,11 +361,11 @@ export default function Monitor() {
                             },
                             {
                                 reps: 12,
-                                weight: 225
+                                weight: 235
                             },
                             {
                                 reps: 12,
-                                weight: 225
+                                weight: 235
                             }
                         ]
                     },
@@ -383,11 +383,11 @@ export default function Monitor() {
                             },
                             {
                                 reps: 12,
-                                weight: 135
+                                weight: 145
                             },
                             {
                                 reps: 12,
-                                weight: 135
+                                weight: 145
                             }
                         ]
                     },
@@ -435,7 +435,7 @@ export default function Monitor() {
                             },
                             {
                                 reps: 12,
-                                weight: 225
+                                weight: 230
                             }
                         ]
                     },
@@ -457,7 +457,7 @@ export default function Monitor() {
                             },
                             {
                                 reps: 12,
-                                weight: 135
+                                weight: 150
                             }
                         ]
                     },
@@ -475,7 +475,7 @@ export default function Monitor() {
                             },
                             {
                                 reps: 15,
-                                weight: 90
+                                weight: 100
                             }
                         ]
                     }
@@ -484,6 +484,7 @@ export default function Monitor() {
         {
             name: "Workout 3",
             type: "Push",
+            date: "8/9/2023",
             exercises: [
                 {
                     ename: "Dumbell Flat Bench Press",
@@ -600,6 +601,7 @@ export default function Monitor() {
         {
             name: "Workout 3",
             type: "Push",
+            date: "8/16/2023",
             exercises: [
                 {
                     ename: "Dumbell Flat Bench Press",
@@ -716,6 +718,7 @@ export default function Monitor() {
         {
             name: "Workout 3",
             type: "Push",
+            date: "8/23/2023",
             exercises: [
                 {
                     ename: "Dumbell Flat Bench Press",
@@ -832,6 +835,7 @@ export default function Monitor() {
         {
             name: "Workout 4",
             type: "Pull",
+            date: "8/10/2023",
             exercises: [
                 {
                     ename: "Lat Pulldown",
@@ -931,6 +935,7 @@ export default function Monitor() {
         {
             name: "Workout 4",
             type: "Pull",
+            date: "8/17/2023",
             exercises: [
                 {
                     ename: "Lat Pulldown",
@@ -1030,6 +1035,7 @@ export default function Monitor() {
         {
             name: "Workout 4",
             type: "Pull",
+            date: "8/24/2023",
             exercises: [
                 {
                     ename: "Lat Pulldown",
@@ -1129,6 +1135,7 @@ export default function Monitor() {
         {
             name: "Workout 5",
             type: "Legs",
+            date: "8/11/2023",
             exercises: [
                 {
                     ename: "Back Squat",
@@ -1203,6 +1210,7 @@ export default function Monitor() {
         {
             name: "Workout 5",
             type: "Legs",
+            date: "8/18/2023",
             exercises: [
                 {
                     ename: "Back Squat",
@@ -1277,6 +1285,7 @@ export default function Monitor() {
         {
             name: "Workout 5",
             type: "Legs",
+            date: "8/25/2023",
             exercises: [
                 {
                     ename: "Back Squat",
