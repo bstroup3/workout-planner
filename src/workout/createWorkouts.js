@@ -8,6 +8,29 @@ import Trash from "../images/trash.png"
 export default function CreateWorkouts() {
     const [exerciseRows, setExerciseRows] = useState([])
 
+    const testFunction = (e) => {
+        e.preventDefault()
+        console.log(e)
+        const object = {
+            name: e.target[0].value,
+            type: e.target[1].value,
+            exercises: []
+        }
+        for (let i = 2; i < e.target.length-2; i += 3) {
+            const ename = e.target[i].value;
+            const sets = [];
+        
+            for (let j = i + 1; j < i + 3; j++) {
+                const reps = e.target[j].value;
+                sets.push({ reps });
+            }
+        
+            object.exercises.push({ ename, sets });
+        }
+
+        console.log(object)
+    }
+
     const addRow = (e, id) => {
         e.preventDefault();
         const newRow = { id: exerciseRows.length + 1 };
@@ -38,7 +61,7 @@ export default function CreateWorkouts() {
                 <hr className={style.lineRow} />
             </div>
             <div className={style.mainContainer}>
-                <form className={style.workoutForm}>
+                <form className={style.workoutForm} onSubmit={testFunction}>
                     <label>Workout Name</label>
                     <input type='text' name='name' />
                     <br />
