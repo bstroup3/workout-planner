@@ -10,9 +10,10 @@ import NoPageFound from "../noPageFound/noPageFound"
 
 export default function Home() {
     const [users, setUsers] = useState(null)
+    const API_URL = process.env.REACT_APP_API_URL
 
     useEffect(() => {
-        fetch('/users')
+        fetch(API_URL + 'users')
         .then((res) => res.json())
         .then((data) => setUsers(data.users))
     },[])

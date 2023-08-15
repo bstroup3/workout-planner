@@ -8,22 +8,22 @@ import NoPageFound from '../noPageFound/noPageFound'
 
 
 export default function ViewWorkouts() {
-
+    const API_URL = process.env.REACT_APP_API_URL
     const [workout, setWorkout] = useState(null)
     const [users, setUsers] = useState(null)
 
     useEffect(() => {
-        fetch('/workouts')
+        fetch(API_URL + 'workouts')
         .then((res) => res.json())
         .then((workoutData) => setWorkout(workoutData.workouts))
 
-        fetch('/users')
+        fetch(API_URL + 'users')
         .then((res) => res.json())
         .then((data) => setUsers(data.users))
     },[])
 
     const handleDelete = async (id) => {
-        const response = await fetch(`/workouts/delete/${id}`, {method: 'DELETE'})
+        const response = await fetch(API_URL + `workouts/delete/${id}`, {method: 'DELETE'})
         if (response.ok){
             const data = await response.json()
             window.location.reload()

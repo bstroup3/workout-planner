@@ -9,19 +9,20 @@ export default function Goals() {
     
     const [goalz,setGoalz] = useState(null)
     const [users, setUsers] = useState(null)
+    const API_URL = process.env.REACT_APP_API_URL
 
     useEffect(()=> {
-        fetch('/goals/')
+        fetch(API_URL + 'goals/')
         .then((res) => res.json())
         .then((data) => setGoalz(data.goals))
 
-        fetch('/users')
+        fetch(API_URL + 'users')
         .then((res) => res.json())
         .then((data) => setUsers(data.users))
     },[])
 
     const handleDelete = async (id) => {
-        const response = await fetch(`/goals/delete/${id}`, {method: 'DELETE'})
+        const response = await fetch(API_URL + `goals/delete/${id}`, {method: 'DELETE'})
         console.log(response)
         if(response.ok){
             const data = await response.json()

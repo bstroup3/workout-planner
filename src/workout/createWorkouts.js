@@ -10,6 +10,7 @@ export default function CreateWorkouts() {
     const [exerciseRows, setExerciseRows] = useState([])
     const [newWorkout, setNewWorkout] = useState(null)
     const [users, setUsers] = useState(null)
+    const API_URL = process.env.REACT_APP_API_URL
 
     const testFunction = async (e) => {
         e.preventDefault()
@@ -36,7 +37,7 @@ export default function CreateWorkouts() {
     }
 
     useEffect(() => {
-        fetch('/users')
+        fetch(API_URL + 'users')
         .then((res) => res.json())
         .then((data) => setUsers(data.users))
     },[])
@@ -44,11 +45,11 @@ export default function CreateWorkouts() {
     useEffect(() => {
         if(newWorkout == null) return
         console.log(newWorkout)
-        fetch('/workouts/', 
+        fetch(API_URL + 'workouts/', 
         {method: 'POST', 
         headers: {'Content-Type': 'application/json'}, 
         body: JSON.stringify(newWorkout)})
-        .then(window.location.reload())
+        
     },[newWorkout])
 
     const addRow = (e, id) => {

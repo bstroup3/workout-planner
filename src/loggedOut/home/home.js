@@ -8,8 +8,6 @@ import Progress from "../images/progress.png"
 import { Link } from "react-router-dom"
 
 export default function Home() {
-    const loggedIn = useState(false)
-
     return (
         <>
             <Header />

@@ -14,13 +14,14 @@ export default function Monitor() {
     const [currentWorkout, setCurrentWorkout] = useState("")
     const [workoutz, setWorkoutz] = useState(null)
     const [users, setUsers] = useState(null)
+    const API_URL = process.env.REACT_APP_API_URL
 
     useEffect(() => {
-        fetch('/workouts')
+        fetch(API_URL + 'workouts')
         .then((res) => res.json())
         .then((data) => setWorkoutz(data.workouts))
 
-        fetch('/users')
+        fetch(API_URL + 'users')
         .then((res) => res.json())
         .then((data) => setUsers(data.users))
     },[])

@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 export default function CreateAccount(){
 
     const [newUser, setNewUser] = useState(null)
+    const API_URL = process.env.REACT_APP_API_URL
 
     const testFunction = async (e) => {
         e.preventDefault()
@@ -21,7 +22,7 @@ export default function CreateAccount(){
 
     useEffect(() => {
         if(newUser == null) return
-        fetch('/users/', 
+        fetch(API_URL + 'users/', 
         {method: 'POST', 
         headers: {'Content-Type': 'application/json'}, 
         body: JSON.stringify(newUser)})

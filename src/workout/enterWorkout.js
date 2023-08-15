@@ -18,13 +18,14 @@ export default function EnterWorkout() {
 
     const [workoutz, setWorkoutz] = useState(null)
     const [newWorkout, setNewWorkout] = useState(null)
+    const API_URL = process.env.REACT_APP_API_URL
 
     useEffect(() => {
-        fetch('/workouts')
+        fetch(API_URL + 'workouts')
         .then((res) => res.json())
         .then((data) => setWorkoutz(data.workouts))
 
-        fetch('/users')
+        fetch(API_URL + 'users')
         .then((res) => res.json())
         .then((data) => setUsers(data.users))
     },[])
@@ -32,7 +33,7 @@ export default function EnterWorkout() {
     useEffect(() => {
         if(newWorkout == null) return
         console.log(newWorkout)
-        fetch(`/users/enter/${users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0]._id}`,
+        fetch(API_URL + `users/enter/${users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0]._id}`,
         {
             method: 'PUT', 
             headers: {'Content-Type':'application/json'},
@@ -52,8 +53,6 @@ export default function EnterWorkout() {
             const workouts = [];
             const sets = []
             const date = new Date()
-            const nextDay = new Date(date);
-            nextDay.setDate(date.getDate() + 1);
             for (let j = 0; j < workoutz.filter(workout => (workout.name == option))[0].exercises[i].sets.length; j++){
                 const weight = e.target[count].value
                 const reps = e.target[count+1].value

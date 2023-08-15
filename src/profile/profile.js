@@ -9,9 +9,10 @@ export default function Profile() {
 
   const [users, setUsers] = useState(null)
   const [user, setUser] = useState(null)
+  const API_URL = process.env.REACT_APP_API_URL
 
   useEffect(() => {
-    fetch('/users')
+    fetch(API_URL + 'users')
       .then((res) => res.json())
       .then((data) => setUsers(data.users))
   }, [])
@@ -22,7 +23,7 @@ export default function Profile() {
   }, [users])
 
   const handleDelete = async () => {
-    const response = await fetch(`/users/delete/${user._id}`, {method: 'DELETE'})
+    const response = await fetch(API_URL + `users/delete/${user._id}`, {method: 'DELETE'})
     if (response.ok){
       const data = await response.json()
       window.location.href = "/"
