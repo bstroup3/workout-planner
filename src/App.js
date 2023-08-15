@@ -1,59 +1,78 @@
 import './App.css';
 import {Link, createBrowserRouter, RouterProvider} from "react-router-dom"
 import Home from "./home/home"
-import Login from "./login/login"
+import OutHome from "./loggedOut/home/home"
+import OutLogin from "./loggedOut/login/login"
 import Monitor from './monitor/monitor';
 import Goals from './goals/goals';
-import CreateAccount from "./login/createAccount"
+import OutCreateAccount from "./loggedOut/login/createAccount"
 import ViewWorkouts from './workout/viewWorkouts';
 import CreateWorkouts from './workout/createWorkouts';
 import EnterWorkout from './workout/enterWorkout';
 import CreateGoals from './goals/createGoals';
+import Test from './test';
+import Profile from './profile/profile';
+import noPageFound from './noPageFound/noPageFound';
 
 export default function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home/>
+      element: <OutHome/>
     },
     {
       path: "/login",
-      element: <Login />
-    },
-    {
-      path: "/monitor",
-      element: <Monitor />
-    },
-    {
-      path: "/goals",
-      element: <Goals />
-    },
-    {
-      path: "/goals/create",
-      element: <CreateGoals />
+      element: <OutLogin />
     },
     {
       path: "/createaccount",
-      element: <CreateAccount />
+      element: <OutCreateAccount />
     },
     {
-      path: "/plan",
+      path: '/:id',
+      element: <Home/>
+    },
+    {
+      path: "/monitor/:id",
+      element: <Monitor />
+    },
+    {
+      path: "/goals/:id",
+      element: <Goals />
+    },
+    {
+      path: "/goals/create/:id",
+      element: <CreateGoals />
+    },
+    {
+      path: "/plan/:id",
       element: <ViewWorkouts />
     },
     {
-      path: "/plan/create",
+      path: "/plan/create/:id",
       element: <CreateWorkouts />
     },
     {
-      path: "/plan/enter",
+      path: "/plan/enter/:id",
       element: <EnterWorkout />
+    },
+    {
+      path: "/profile/:id",
+      element: <Profile />
+    },
+    {
+      path: '/test/:id',
+      element: <Test />
+    },
+    {
+      path: '/*',
+      element: <noPageFound/>
     }
   ]);
 
   return (
     <div>
-      {/* <RouterProvider router={router} /> */}
-      <h1>Test</h1>
+      <RouterProvider router={router} /> 
     </div>
   );
 }

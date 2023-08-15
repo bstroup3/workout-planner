@@ -144,3 +144,23 @@ body{
     align-self: center;
     justify-self: center;
 }
+.deleteColumn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #5480D9;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 5vw;
+    max-width: 5vw;
+    padding: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.deleteColumn:hover{
+    transition: 1s;
+    background-color: red;
+    border: 1px #1d1c19 solid;
+    cursor: pointer;
+}

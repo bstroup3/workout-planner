@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from "react";
 import Header from "../header/header";
 import style from "./login.module.css"
+import {Link} from 'react-router-dom'
 
 export default function CreateAccount(){
 
@@ -24,7 +25,7 @@ export default function CreateAccount(){
         {method: 'POST', 
         headers: {'Content-Type': 'application/json'}, 
         body: JSON.stringify(newUser)})
-        window.location.reload()
+        window.location.href = '/login'
     },[newUser])
 
     return (
@@ -51,6 +52,7 @@ export default function CreateAccount(){
                 <input type="password"/>
                 <br/>
                 <input className={style.button} type="submit" value="Create Account"/>
+                <Link to="/login" style={{color: '#fefefe'}}>Already have an account?</Link>
             </form>
         </>
     )

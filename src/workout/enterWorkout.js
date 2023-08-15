@@ -1,465 +1,105 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import style from "./planWorkout.module.css"
 import Header from "../header/header"
 import Footer from '../header/footer'
+import NoPageFound from '../noPageFound/noPageFound'
 
 export default function EnterWorkout() {
     const [option, setOption] = useState("")
+    const [users, setUsers] = useState(null)
 
     const setWorkout = (event) => {
+        event.preventDefault()
         if (option != event.target.value) {
             setOption(event.target.value)
         }
     }
 
-    const workouts = [
+    const [workoutz, setWorkoutz] = useState(null)
+    const [newWorkout, setNewWorkout] = useState(null)
+
+    useEffect(() => {
+        fetch('/workouts')
+        .then((res) => res.json())
+        .then((data) => setWorkoutz(data.workouts))
+
+        fetch('/users')
+        .then((res) => res.json())
+        .then((data) => setUsers(data.users))
+    },[])
+
+    useEffect(() => {
+        if(newWorkout == null) return
+        console.log(newWorkout)
+        fetch(`/users/enter/${users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0]._id}`,
         {
-            name: "Workout 1",
-            type: "Upper Body",
-            exercises:
-                [
-                    {
-                        ename: "Bench Press",
-                        sets:
-                            [
-                                {
-                                    reps: 8,
-                                    weight: 145
-                                },
-                                {
-                                    reps: 8,
-                                    weight: 145
-                                },
-                                {
-                                    reps: 8,
-                                    weight: 145
-                                },
-                                {
-                                    reps: 8,
-                                    weight: 145
-                                },
-                            ]
-                    },
-                    {
-                        ename: "Pull-Ups",
-                        sets:
-                            [
-                                {
-                                    reps: 12,
-                                    weight: null
-                                },
-                                {
-                                    reps: 12,
-                                    weight: null
-                                },
-                                {
-                                    reps: 10,
-                                    weight: null
-                                },
-                                {
-                                    reps: 8,
-                                    weight: null
-                                },
-                            ]
-                    },
-                    {
-                        ename: "Barbell Row",
-                        sets:
-                            [
-                                {
-                                    reps: 12,
-                                    weight: 115
-                                },
-                                {
-                                    reps: 12,
-                                    weight: 115
-                                },
-                                {
-                                    reps: 12,
-                                    weight: 115
-                                }
-                            ]
-                    },
-                    {
-                        ename: "Dumbell Incline Bench Press",
-                        sets:
-                            [
-                                {
-                                    reps: 12,
-                                    weight: 40
-                                },
-                                {
-                                    reps: 12,
-                                    weight: 40
-                                },
-                                {
-                                    reps: 12,
-                                    weight: 40
-                                }
-                            ]
-                    }
-                ]
-        },
-        {
-            name: "Workout 2",
-            type: "Lower Body",
-            exercises:
-                [
-                    {
-                        ename: "Leg Press",
-                        sets: 
-                        [
-                            {
-                                reps: 12,
-                                weight: 225
-                            },
-                            {
-                                reps: 12,
-                                weight: 225
-                            },
-                            {
-                                reps: 12,
-                                weight: 225
-                            },
-                            {
-                                reps: 12,
-                                weight: 225
-                            }
-                        ]
-                    },
-                    {
-                        ename: "Romanian Deadlift",
-                        sets: 
-                        [
-                            {
-                                reps: 12,
-                                weight: 135
-                            },
-                            {
-                                reps: 12,
-                                weight: 135
-                            },
-                            {
-                                reps: 12,
-                                weight: 135
-                            },
-                            {
-                                reps: 12,
-                                weight: 135
-                            }
-                        ]
-                    },
-                    {
-                        ename: "Seated Calf Raises",
-                        sets: 
-                        [
-                            {
-                                reps: 15,
-                                weight: 90
-                            },
-                            {
-                                reps: 15,
-                                weight: 90
-                            },
-                            {
-                                reps: 15,
-                                weight: 90
-                            }
-                        ]
-                    }
-                ]
-        },
-        {
-            name: "Workout 3",
-            type: "Push",
-            exercises: [
-                {
-                    ename: "Dumbell Flat Bench Press",
-                    sets: [
-                        {
-                            reps: 8,
-                            weight: 55
-                        },
-                        {
-                            reps: 8,
-                            weight: 55
-                        },
-                        {
-                            reps: 8,
-                            weight: 55
-                        },
-                        {
-                            reps: 8,
-                            weight: 55
-                        },
-                    ]
-                },
-                {
-                    ename: "Tricep Pushdown",
-                    sets: [
-                        {
-                            reps: 12,
-                            weight: 30
-                        },
-                        {
-                            reps: 12,
-                            weight: 30
-                        },
-                        {
-                            reps: 12,
-                            weight: 30
-                        },
-                        {
-                            reps: 12,
-                            weight: 30
-                        },
-                    ]
-                },
-                {
-                    ename: "Cable Crossover",
-                    sets: [
-                        {
-                            reps: 12,
-                            weight: 40
-                        },
-                        {
-                            reps: 12,
-                            weight: 40
-                        },
-                        {
-                            reps: 12,
-                            weight: 40
-                        }
-                    ]
-                },
-                {
-                    ename: "Cable Fly",
-                    sets: [
-                        {
-                            reps: 12,
-                            weight: 35
-                        },
-                        {
-                            reps: 12,
-                            weight: 35
-                        },
-                        {
-                            reps: 12,
-                            weight: 35
-                        }
-                    ]
-                },
-                {
-                    ename: "Military Press",
-                    sets: [
-                        {
-                            reps: 12,
-                            weight: 20
-                        },
-                        {
-                            reps: 12,
-                            weight: 25
-                        },
-                        {
-                            reps: 12,
-                            weight: 25
-                        }
-                    ]
-                },
-                {
-                    ename: "Lateral Shoulder Raise",
-                    sets: [
-                        {
-                            reps: 15,
-                            weight: 15
-                        },
-                        {
-                            reps: 15,
-                            weight: 15
-                        },
-                        {
-                            reps: 15,
-                            weight: 15
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            name: "Workout 4",
-            type: "Pull",
-            exercises: [
-                {
-                    ename: "Lat Pulldown",
-                    sets: [
-                        {
-                            reps: 10,
-                            weight: 140
-                        },
-                        {
-                            reps: 10,
-                            weight: 140
-                        },
-                        {
-                            reps: 10,
-                            weight: 140
-                        },
-                        {
-                            reps: 8,
-                            weight: 140
-                        }
-                    ]
-                },
-                {
-                    ename: "Cable Row",
-                    sets: [
-                        {
-                            reps: 12,
-                            weight: 100
-                        },
-                        {
-                            reps: 12,
-                            weight: 100
-                        },
-                        {
-                            reps: 12,
-                            weight: 100
-                        },
-                        {
-                            reps: 12,
-                            weight: 100
-                        }
-                    ]
-                },
-                {
-                    ename: "Preacher Curl",
-                    sets: [
-                        {
-                            reps: 12,
-                            weight: 50
-                        },
-                        {
-                            reps: 10,
-                            weight: 50
-                        },
-                        {
-                            reps: 10,
-                            weight: 50
-                        }
-                    ]
-                },
-                {
-                    ename: "Bent Over Dumbell Fly",
-                    sets: [
-                        {
-                            reps: 12,
-                            weight: 15
-                        },
-                        {
-                            reps: 12,
-                            weight: 15
-                        },
-                        {
-                            reps: 12,
-                            weight: 15
-                        }
-                    ]
-                },
-                {
-                    ename: "Dumbell Curl",
-                    sets: [
-                        {
-                            reps: 12,
-                            weight: 20
-                        },
-                        {
-                            reps: 12,
-                            weight: 20
-                        },
-                        {
-                            reps: 12,
-                            weight: 20
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            name: "Workout 5",
-            type: "Legs",
-            exercises: [
-                {
-                    ename: "Back Squat",
-                    sets: [
-                        {
-                            reps: 8,
-                            weight: 135
-                        },
-                        {
-                            reps: 8,
-                            weight: 155
-                        },
-                        {
-                            reps: 8,
-                            weight: 155
-                        }
-                    ]
-                },
-                {
-                    ename: "Leg Extension",
-                    sets: [
-                        {
-                            reps: 12,
-                            weight: 90
-                        },
-                        {
-                            reps: 12,
-                            weight: 90
-                        },
-                        {
-                            reps: 12,
-                            weight: 90
-                        }
-                    ]
-                },
-                {
-                    ename: "Hamstring Curls",
-                    sets: [
-                        {
-                            reps: 12,
-                            weight: 85
-                        },
-                        {
-                            reps: 12,
-                            weight: 85
-                        },
-                        {
-                            reps: 12,
-                            weight: 85
-                        },
-                    ]
-                },
-                {
-                    ename: "Seated Calf Raise",
-                    sets: [
-                        {
-                            reps: 15,
-                            weight: 90
-                        },
-                        {
-                            reps: 15,
-                            weight: 90
-                        },
-                        {
-                            reps: 15,
-                            weight: 90
-                        }
-                    ]
-                }
-            ]
+            method: 'PUT', 
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify(newWorkout)
         }
-    ]
+        )
+    }, [newWorkout])
+
+    const testFunction1 = async (e) => {
+        e.preventDefault()
+        const object = []
+
+        let count = 0;
+
+        for(let i=0; i < workoutz.filter(workout => (workout.name == option))[0].exercises.length; i++){
+            const ename = workoutz.filter(workout => (workout.name == option))[0].exercises[i].ename
+            const workouts = [];
+            const sets = []
+            const date = new Date()
+            const nextDay = new Date(date);
+            nextDay.setDate(date.getDate() + 1);
+            for (let j = 0; j < workoutz.filter(workout => (workout.name == option))[0].exercises[i].sets.length; j++){
+                const weight = e.target[count].value
+                const reps = e.target[count+1].value
+                count+=2
+                await sets.push({reps, weight})
+            }
+            await workouts.push({
+                date: date.toISOString().substring(0,10),
+                sets: sets
+            })
+            await object.push({ename, workouts})
+            count = 0
+        }
+
+        setNewWorkout(object)
+    }
+
+    if(workoutz == null || users == null){
+        return (
+            <>
+                <Header />
+                <div className={style.headerContainer}>
+                    <h1 className={style.header}>Plan Workout</h1>
+                </div>
+                <div className={style.optionsContainer}>
+                    <Link className={style.option} to={`/plan/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>View Workouts</Link>
+                    <Link className={style.option} to={`/plan/create/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Create New Workout</Link>
+                    <Link className={style.selectedOption} to={`/plan/enter/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Enter Workout Info</Link>
+                </div>
+                <div className={style.lineContainer}>
+                    <hr className={style.lineRow} />
+                </div>
+                <div className={style.mainContainer}>
+                    <h1>Loading...</h1>
+                </div>
+                <Footer/>
+            </>
+        )
+    }
+
+    if(users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0] == undefined) {
+        return(
+            <NoPageFound/>
+        )
+    }
+
     if (option == "") {
         return (
             <>
@@ -468,22 +108,22 @@ export default function EnterWorkout() {
                     <h1 className={style.header}>Plan Workout</h1>
                 </div>
                 <div className={style.optionsContainer}>
-                    <Link className={style.option} to="/plan">View Workouts</Link>
-                    <Link className={style.option} to="/plan/create">Create New Workout</Link>
-                    <Link className={style.selectedOption} to="/plan/enter">Enter Workout Info</Link>
+                    <Link className={style.option} to={`/plan/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>View Workouts</Link>
+                    <Link className={style.option} to={`/plan/create/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Create New Workout</Link>
+                    <Link className={style.selectedOption} to={`/plan/enter/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Enter Workout Info</Link>
                 </div>
                 <div className={style.lineContainer}>
                     <hr className={style.lineRow} />
                 </div>
                 <div className={style.mainContainer}>
                     <h2>Which workout would you like to enter?</h2>
-                    <form onSubmit={() => setWorkout} id='workoutID' name='workoutID'>
+                    <form id='workoutID' name='workoutID'>
                         <select onChange={setWorkout}>
                             <option value={""}></option>
                             {
-                                workouts.map((workout) => {
+                                workoutz.filter(workout => workout.template == true && workout.userId == users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0]._id).map((workout) => {
                                     return (
-                                        <option value={workout.name}>{workout.name}</option>
+                                        <option value={workout.name} key={workout.name}>{workout.name}</option>
                                     )
                                 })
                             }
@@ -495,7 +135,7 @@ export default function EnterWorkout() {
         )
     }
     else {
-        const workout = workouts.filter((workout) => (workout.name == option))[0]
+        const workout = workoutz.filter((workout) => (workout.name == option && workout.template == true))[0]
         return (
             <>
                 <Header />
@@ -503,20 +143,20 @@ export default function EnterWorkout() {
                     <h1 className={style.header}>Plan Workout</h1>
                 </div>
                 <div className={style.optionsContainer}>
-                    <Link className={style.option} to="/plan">View Workouts</Link>
-                    <Link className={style.option} to="/plan/create">Create New Workout</Link>
-                    <Link className={style.selectedOption} to="/plan/enter">Enter Workout Info</Link>
+                    <Link className={style.option} to={`/plan/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>View Workouts</Link>
+                    <Link className={style.option} to={`/plan/create/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Create New Workout</Link>
+                    <Link className={style.selectedOption} to={`/plan/enter/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Enter Workout Info</Link>
                 </div>
                 <div className={style.lineContainer}>
                     <hr className={style.lineRow} />
                 </div>
-                <div className={style.mainContainer}>
+                <form className={style.mainContainer} onSubmit={testFunction1}>
                     <h2>Which workout would you like to enter?</h2>
-                    <form onSubmit={() => setWorkout} id='workoutID' name='workoutID'>
-                        <select onChange={setWorkout}>
+                    <form id='workoutID' name='workoutID'>
+                        <select onChange={setWorkout} value={option}>
                             <option value={""}></option>
                             {
-                                workouts.map((workout) => {
+                                workoutz.filter(workout => workout.template == true && workout.userId == users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0]._id).map((workout) => {
                                     return (
                                         <option value={workout.name}>{workout.name}</option>
                                     )
@@ -547,8 +187,8 @@ export default function EnterWorkout() {
                             )
                         )
                     }
-                    <button className={style.button}>Enter</button>
-                </div>
+                    <button className={style.button} type='submit'>Enter</button>
+                </form>
                 <Footer/>
             </>
         )

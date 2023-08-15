@@ -1,7 +1,7 @@
 import React from 'react'
 import style from "./planWorkout.module.css"
 
-export default function Workout({workout}) {
+export default function Workout({workout, handleDelete}) {
   return (
     <div className={style.row}>
         <div className={style.workoutNameDiv}>
@@ -11,13 +11,16 @@ export default function Workout({workout}) {
         {
             workout.exercises.map((exercise) => {
                 return(
-                    <div className={style.column}>
+                    <div className={style.column} key={exercise.ename}>
                         <h4>{exercise.ename}</h4>
                         <h4>{exercise.sets.length} x {exercise.sets[0].reps}</h4>
                     </div>
                 )
             })
         }
+        <div className={style.deleteColumn} onClick={() => handleDelete(workout._id)}>
+            <h4>Delete</h4>
+        </div>
     </div>
   )
 }

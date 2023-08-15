@@ -1,35 +1,55 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from "react-router-dom"
 import style from "./planWorkout.module.css"
 import Header from "../header/header"
 import Footer from "../header/footer"
 import Trash from "../images/trash.png"
+import NoPageFound from '../noPageFound/noPageFound'
 
 export default function CreateWorkouts() {
     const [exerciseRows, setExerciseRows] = useState([])
+    const [newWorkout, setNewWorkout] = useState(null)
+    const [users, setUsers] = useState(null)
 
-    const testFunction = (e) => {
+    const testFunction = async (e) => {
         e.preventDefault()
         console.log(e)
         const object = {
             name: e.target[0].value,
+            userId: users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0]._id,
             type: e.target[1].value,
             exercises: []
         }
         for (let i = 2; i < e.target.length-2; i += 3) {
             const ename = e.target[i].value;
             const sets = [];
-        
-            for (let j = i + 1; j < i + 3; j++) {
-                const reps = e.target[j].value;
-                sets.push({ reps });
+
+            for (let j = 0; j < parseInt(e.target[i+1].value); j++) {
+                const reps = e.target[i+2].value;
+                await sets.push({ reps });
             }
         
-            object.exercises.push({ ename, sets });
+            await object.exercises.push({ ename, sets });
         }
 
-        console.log(object)
+        setNewWorkout(object)
     }
+
+    useEffect(() => {
+        fetch('/users')
+        .then((res) => res.json())
+        .then((data) => setUsers(data.users))
+    },[])
+
+    useEffect(() => {
+        if(newWorkout == null) return
+        console.log(newWorkout)
+        fetch('/workouts/', 
+        {method: 'POST', 
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify(newWorkout)})
+        .then(window.location.reload())
+    },[newWorkout])
 
     const addRow = (e, id) => {
         e.preventDefault();
@@ -46,6 +66,34 @@ export default function CreateWorkouts() {
         })
         setExerciseRows(newRows)
     }
+    if(users == null){
+        return (
+            <>
+                <Header />
+                <div className={style.headerContainer}>
+                    <h1 className={style.header}>Plan Workout</h1>
+                </div>
+                <div className={style.optionsContainer}>
+                    <Link className={style.option} to={`/plan/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>View Workouts</Link>
+                    <Link className={style.selectedOption} to={`/plan/create/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Create New Workout</Link>
+                    <Link className={style.option} to={`/plan/enter/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Enter Workout Info</Link>
+                </div>
+                <div className={style.lineContainer}>
+                    <hr className={style.lineRow} />
+                </div>
+                <div className={style.mainContainer}>
+                    <h1>Loading...</h1>
+                </div>
+                <Footer/>
+            </>
+        )
+    }
+
+    if(users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0] == undefined) {
+        return(
+            <NoPageFound/>
+        )
+    }
     return (
         <>
             <Header />
@@ -53,9 +101,9 @@ export default function CreateWorkouts() {
                 <h1 className={style.header}>Plan Workout</h1>
             </div>
             <div className={style.optionsContainer}>
-                <Link className={style.option} to="/plan">View Workouts</Link>
-                <Link className={style.selectedOption} to="/plan/create">Create New Workout</Link>
-                <Link className={style.option} to="/plan/enter">Enter Workout Info</Link>
+                <Link className={style.option} to={`/plan/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>View Workouts</Link>
+                <Link className={style.selectedOption} to={`/plan/create/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Create New Workout</Link>
+                <Link className={style.option} to={`/plan/enter/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Enter Workout Info</Link>
             </div>
             <div className={style.lineContainer}>
                 <hr className={style.lineRow} />

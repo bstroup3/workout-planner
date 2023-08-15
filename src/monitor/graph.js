@@ -2,52 +2,53 @@ import React from 'react'
 import style from "./monitor.module.css"
 import { Line, annotation } from 'react-chartjs-2'
 
-export default function Graph({ workouts, exercise }) {
+export default function Graph({ workouts, name }) {
 
-    if (workouts == undefined || exercise == undefined) {
+
+
+    if (workouts == undefined || name == undefined) {
         return (
             <h1>Loading ...</h1>
         )
     }
     else {
         const newWorkouts = workouts
+        console.log(newWorkouts)
 
-        const goals = [
-            {
-                userid: 12345,
-                goalid: 99999,
-                ename: "Bench Press",
-                reps: 8,
-                weight: 225
-            }
-        ]
+        console.log(newWorkouts)
 
-        const weights = newWorkouts.map((workout) => (
-            workout.exercises.filter((exercise1) => (exercise1.ename == exercise.ename))[0].sets.map((set) => (
-                set.weight
-            )).slice(-2)
-        ))
+        const weights = newWorkouts.map((workout) => {
+            return workout.workouts.map((workout) => {
+                return [0,...workout.sets.map((set) => {
+                    return set.weight
+                })]
+            })
+        })
 
-        const reps = newWorkouts.map((workout) => (
-            workout.exercises.filter((exercise1) => (exercise1.ename == exercise.ename))[0].sets.map((set) => (
-                set.reps
-            )).slice(-2)
+        const reps = newWorkouts.map((workout) => {
+            return workout.workouts.map((workout) => {
+                return [0,...workout.sets.map((set) => {
+                    return set.reps
+                })]
+            })
+        })
+
+        const dates = newWorkouts.map((workout) => (
+            workout.workouts.map((date) => {
+                return date.date
+            })
         ))
         const metric = (weights[0][0] == null) ? reps : weights
 
-        const dates = newWorkouts.map((workout) => (
-            workout.date
-        ))
-
-        const labels = dates
+        const labels = dates[0]
         const data = {
             labels: labels,
             datasets: [
                 {
-                    label: exercise.ename,
+                    label: name,
                     backgroundColor: "rgb(255,255,255)",
                     borderColor: "rgb(85,128,217)",
-                    data: metric
+                    data: metric[0]
                 }
             ]
         }
@@ -74,7 +75,7 @@ export default function Graph({ workouts, exercise }) {
 
         return (
             <div className={style.lineChart}>
-                <h2>{exercise.ename}</h2>
+                <h2>{name}</h2>
                 <Line data={data} options={options} />
             </div>
         )

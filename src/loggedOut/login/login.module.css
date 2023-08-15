@@ -29,29 +29,22 @@ body{
     background-color: #1d1c19;
     color: #fefdfb;
     height: 80vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.mainEmptyContainer{
+.button{
+    height: 6%;
+    padding-left: 1%;
+    padding-right: 1%;
+    color: #fefdfb;
     background-color: #1d1c19;
-    color: #fefdfb;
-    height: 80vh;
-    display: grid;
-    margin-top: 10vh;
+    border-color: #5480D9;
+    border-radius: 30%;
+    box-shadow: none;
+    border-style: solid;
 }
-.lineChart{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 50vh;
-    width: 40vw;
-    margin: 30px;
-}
-.select{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fefdfb;
-
+.button:hover{
+    transition: 1s;
+    background-color: #5480D9;
 }
