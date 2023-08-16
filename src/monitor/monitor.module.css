@@ -29,8 +29,9 @@ body{
     background-color: #1d1c19;
     color: #fefdfb;
     height: 80vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .mainEmptyContainer{
     background-color: #1d1c19;
@@ -44,7 +45,7 @@ body{
     flex-direction: column;
     align-items: center;
     height: 50vh;
-    width: 40vw;
+    width: 80vw;
     margin: 30px;
 }
 .select{
@@ -54,4 +55,14 @@ body{
     align-items: center;
     color: #fefdfb;
 
+}
+.graphDiv{
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+}
+.realGraphDiv{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
 }

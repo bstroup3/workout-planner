@@ -40,6 +40,10 @@ export default function EnterWorkout() {
             body: JSON.stringify(newWorkout)
         }
         )
+        setTimeout(() => {
+            //window.location.reload()
+            console.log(newWorkout)
+        },100)
     }, [newWorkout])
 
     const testFunction1 = async (e) => {
@@ -47,12 +51,14 @@ export default function EnterWorkout() {
         const object = []
 
         let count = 0;
-
+        console.log(e)
         for(let i=0; i < workoutz.filter(workout => (workout.name == option))[0].exercises.length; i++){
             const ename = workoutz.filter(workout => (workout.name == option))[0].exercises[i].ename
             const workouts = [];
             const sets = []
             const date = new Date()
+            const nextDay = new Date(date)
+            nextDay.setDate(date.getDate() + 1);
             for (let j = 0; j < workoutz.filter(workout => (workout.name == option))[0].exercises[i].sets.length; j++){
                 const weight = e.target[count].value
                 const reps = e.target[count+1].value
@@ -60,11 +66,10 @@ export default function EnterWorkout() {
                 await sets.push({reps, weight})
             }
             await workouts.push({
-                date: date.toISOString().substring(0,10),
+                date: nextDay.toISOString().substring(0,10),
                 sets: sets
             })
             await object.push({ename, workouts})
-            count = 0
         }
 
         setNewWorkout(object)

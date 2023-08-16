@@ -105,7 +105,7 @@ export default function Monitor() {
                     <div className={style.mainContainer}>
                         {
                             filteredExercises.map((exercise) => (
-                                <Graph workouts={filteredExercises} name={exercise.ename} key={exercise.ename} />
+                                <Graph exercise={exercise} name={exercise.ename} key={exercise.ename} />
                             ))
                         }
                     </div>

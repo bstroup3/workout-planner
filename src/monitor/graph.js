@@ -2,56 +2,65 @@ import React from 'react'
 import style from "./monitor.module.css"
 import { Line, annotation } from 'react-chartjs-2'
 
-export default function Graph({ workouts, name }) {
+export default function Graph({ exercise, name }) {
 
-
-
-    if (workouts == undefined || name == undefined) {
+    if (exercise == undefined || name == undefined) {
         return (
             <h1>Loading ...</h1>
         )
     }
     else {
-        const newWorkouts = workouts
+        const newWorkouts = exercise
         console.log(newWorkouts)
-
-        console.log(newWorkouts)
-
-        const weights = newWorkouts.map((workout) => {
-            return workout.workouts.map((workout) => {
-                return [0,...workout.sets.map((set) => {
+        const weights =
+            newWorkouts.workouts.map((workout1) => {
+                return workout1.sets.map((set) => {
                     return set.weight
-                })]
+                })[newWorkouts.workouts.length - 1]
             })
-        })
 
-        const reps = newWorkouts.map((workout) => {
-            return workout.workouts.map((workout) => {
-                return [0,...workout.sets.map((set) => {
+        console.log(weights)
+
+        const reps =
+            newWorkouts.workouts.map((workout1) => {
+                return workout1.sets.map((set) => {
                     return set.reps
-                })]
+                })[newWorkouts.workouts.length - 1]
             })
-        })
 
-        const dates = newWorkouts.map((workout) => (
-            workout.workouts.map((date) => {
-                return date.date
-            })
+        const dates = newWorkouts.workouts.map((date) => (
+            date.date
         ))
-        const metric = (weights[0][0] == null) ? reps : weights
+        console.log(dates)
+        const metric = (weights[0] == 0) ? reps : weights
+        console.log(metric)
 
-        const labels = dates[0]
+        const labels = dates
         const data = {
             labels: labels,
             datasets: [
                 {
-                    label: name,
+                    label: 'Weight',
                     backgroundColor: "rgb(255,255,255)",
                     borderColor: "rgb(85,128,217)",
-                    data: metric[0]
+                    data: weights
                 }
             ]
         }
+
+        const data2 = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Reps',
+                    backgroundColor: "rgb(255,255,255)",
+                    borderColor: "rgb(204,204,204)",
+                    data: reps
+                }
+            ]
+        }
+
+
 
         const options = {
             scales: {
@@ -76,7 +85,16 @@ export default function Graph({ workouts, name }) {
         return (
             <div className={style.lineChart}>
                 <h2>{name}</h2>
-                <Line data={data} options={options} />
+                <div className={style.graphDiv}>
+                    <div className={style.realGraphDiv}>
+                        <h3 style={{textAlign: 'center'}}>Weight</h3>
+                        <Line data={data} options={options} />
+                    </div>
+                    <div className={style.realGraphDiv}>
+                        <h3 style={{textAlign: 'center'}}>Reps</h3>
+                        <Line data={data2} options={options} />
+                    </div>
+                </div>
             </div>
         )
     }

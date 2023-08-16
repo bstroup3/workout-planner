@@ -49,8 +49,10 @@ export default function CreateWorkouts() {
         {method: 'POST', 
         headers: {'Content-Type': 'application/json'}, 
         body: JSON.stringify(newWorkout)})
-        
-    },[newWorkout])
+        setTimeout(() => {
+            window.location.reload()
+        },250)
+    }, [newWorkout])
 
     const addRow = (e, id) => {
         e.preventDefault();
