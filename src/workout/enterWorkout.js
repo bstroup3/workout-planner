@@ -41,8 +41,7 @@ export default function EnterWorkout() {
         }
         )
         setTimeout(() => {
-            //window.location.reload()
-            console.log(newWorkout)
+            window.location.reload()
         },100)
     }, [newWorkout])
 

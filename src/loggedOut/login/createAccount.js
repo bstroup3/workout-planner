@@ -26,7 +26,9 @@ export default function CreateAccount(){
         {method: 'POST', 
         headers: {'Content-Type': 'application/json'}, 
         body: JSON.stringify(newUser)})
-        window.location.href = '/login'
+        setTimeout(() => {
+            window.location.href = '/login'
+        },250)
     },[newUser])
 
     return (

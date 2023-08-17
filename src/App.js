@@ -65,7 +65,7 @@ export default function App() {
       element: <Test />
     },
     {
-      path: '/*',
+      path: '*',
       element: <noPageFound/>
     }
   ]);

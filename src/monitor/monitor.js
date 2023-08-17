@@ -82,6 +82,34 @@ export default function Monitor() {
         const filteredExercises = currentWorkouts.filter((w) => filteredWorkout.exercises.map(e => e.ename).includes(w.ename))
 
         if(currentWorkouts.length != 0){
+
+            if(filteredExercises.length == 0){
+                return(
+                    <>
+                    <Header />
+                    <div className={style.headerContainer}>
+                        <h1 className={style.header}>Monitor Progress</h1>
+                    </div>
+                    <div className={style.lineContainer}>
+                        <hr className={style.lineRow} />
+                    </div>
+                    <div className={style.select}>
+                        <h2>Which workout would you like to monitor?</h2>
+                        <select onChange={(event) => setWorkout(event)}>
+                            <option value=""></option>
+                            {
+                                nameSet.map((name) => (
+                                    <option value={name} key={name}>{name}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
+                    <div className={style.mainContainer}>
+                    <h1 style={{display: 'flex', justifyContent: 'center', textAlign: 'center'}}><br/>Whoops...<br/><br/>No Workout Data Entered</h1>
+                    </div>
+                </>
+                )
+            }
             return (
                 <>
                     <Header />

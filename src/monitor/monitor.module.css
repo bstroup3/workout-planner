@@ -54,12 +54,16 @@ body{
     justify-content: center;
     align-items: center;
     color: #fefdfb;
-
+    text-align: center;
 }
 .graphDiv{
     display: flex;
     flex-direction: row;
     width: 90vw;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10vh;
 }
 .realGraphDiv{
     display: flex;

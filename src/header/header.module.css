@@ -53,9 +53,7 @@
     color: #fefdfb;
     align-items: center;
     height: 100%;
-    margin-top: 0vw;
-    margin-bottom: 0vw;
-    width: 20vw;
+    width: 15vw;
     justify-content: center;
 }
 .headerLine{
@@ -75,4 +73,23 @@
 }
 .footer{
     height: 15vh;
+}
+.listButton{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    text-decoration: none;
+    color: #fefdfb;
+    background-color: #1d1c19;
+    height: 10vh;
+}
+.listButton:hover{
+    text-decoration: underline;
+    transition: 1s;
+    background-color: #fefdfb;
+    color: #1d1c19;
 }
