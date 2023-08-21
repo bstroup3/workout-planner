@@ -114,10 +114,10 @@ export default function CreateWorkouts() {
             <div className={style.mainContainer}>
                 <form className={style.workoutForm} onSubmit={testFunction}>
                     <label>Workout Name</label>
-                    <input type='text' name='name' />
+                    <input type='text' name='name' className={style.textInput}/>
                     <br />
                     <label>Type of Workout</label>
-                    <input type='text' placeholder='ex. Push, Pull, Legs' name='type' />
+                    <input type='text' placeholder='ex. Push, Pull, Legs' name='type' className={style.textInput}/>
                     <br />
                     <label>Exercises</label>
                     <table>
@@ -133,9 +133,9 @@ export default function CreateWorkouts() {
                                     return (
                                         <tr key={row.id}>
                                             <td style={{textAlign: "center", marginRight: "20px"}}>{row.id}</td>
-                                            <td><input type='text' /></td>
-                                            <td><input type='text' /></td>
-                                            <td><input type='text' /></td>
+                                            <td><input type='text' className={style.textInput}/></td>
+                                            <td><input type='text' className={style.textInput}/></td>
+                                            <td><input type='text' className={style.textInput}/></td>
                                             <td><img src={Trash}  className={style.deleteButton} value="Delete" onClick={(event) => newDeleteRow(event, row.id)}/></td>
                                         </tr>
                                     )

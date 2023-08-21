@@ -33,7 +33,9 @@ export default function Login() {
         return(
             <>
             <Header />
-            <h1>Loading...</h1>
+            <div className={style.mainContainer}>
+                <h1>Loading...</h1>
+            </div>
             <Footer />
             </>
         )
@@ -51,10 +53,10 @@ export default function Login() {
             <form className={style.mainContainer} onSubmit={testFunction}>
                 <br/>
                 <h2>Username</h2>
-                <input id="username"/>
+                <input id="username" className={style.textInput}/>
                 <br/>
                 <h2>Password</h2>
-                <input id="password" type="password" />
+                <input id="password" type="password" className={style.textInput}/>
                 <br/>
                 <input className={style.button} type="submit" value="Log In"/>
                 <Link to="/createaccount" style={{color: '#fefefe'}}>Don't have an account?</Link>

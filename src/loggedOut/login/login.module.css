@@ -48,3 +48,10 @@ body{
     transition: 1s;
     background-color: #5480D9;
 }
+.textInput{
+    background-color: #363530;
+    color: #fefdfb;
+    border: none;
+    border-radius: 5px;
+    height: 2.5vh;
+}

@@ -70,3 +70,10 @@ body{
     flex-direction: column;
     width: 80vw;
 }
+.textInput{
+    background-color: #363530;
+    color: #fefdfb;
+    border: none;
+    border-radius: 5px;
+    height: 2.5vh;
+}

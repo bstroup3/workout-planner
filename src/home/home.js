@@ -21,8 +21,10 @@ export default function Home() {
     if(users == null){
         return(
             <>
-                <Header/>
-                <h1>Loading...</h1>
+                <Header />
+                <div className={style.mainContainer}>
+                    <h1>Loading...</h1>
+                </div>
                 <Footer/>
             </>
         )

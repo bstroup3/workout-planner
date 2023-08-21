@@ -31,6 +31,9 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 80vw;
+    align-self: center;
+    margin-left: 10vw;
 }
 .optionsContainer{
     display: flex;
@@ -115,4 +118,11 @@ body{
 }
 .deleteButton:hover{
     cursor: pointer;
+}
+.textInput{
+    background-color: #363530;
+    color: #fefdfb;
+    border: none;
+    border-radius: 5px;
+    height: 2.5vh;
 }

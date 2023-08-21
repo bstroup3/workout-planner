@@ -43,16 +43,16 @@ export default function CreateAccount(){
             <form className={style.mainContainer} onSubmit={testFunction}>
                 <br/>
                 <h2>First Name</h2>
-                <input/>
+                <input className={style.textInput}/>
                 <br/>
                 <h2>Last Name</h2>
-                <input/>
+                <input className={style.textInput}/>
                 <br/>
                 <h2>Username</h2>
-                <input/>
+                <input className={style.textInput}/>
                 <br/>
                 <h2>Password</h2>
-                <input type="password"/>
+                <input type="password" className={style.textInput}/>
                 <br/>
                 <input className={style.button} type="submit" value="Create Account"/>
                 <Link to="/login" style={{color: '#fefefe'}}>Already have an account?</Link>

@@ -16,7 +16,7 @@ export default function Graph({ exercise, name }) {
             newWorkouts.workouts.map((workout1) => {
                 return workout1.sets.map((set) => {
                     return set.weight
-                })[newWorkouts.workouts.length - 1]
+                })[newWorkouts.workouts[0].sets.length - 1]
             })
 
         console.log(weights)
@@ -25,7 +25,7 @@ export default function Graph({ exercise, name }) {
             newWorkouts.workouts.map((workout1) => {
                 return workout1.sets.map((set) => {
                     return set.reps
-                })[newWorkouts.workouts.length - 1]
+                })[newWorkouts.workouts[0].sets.length - 1]
             })
 
         const dates = newWorkouts.workouts.map((date) => (

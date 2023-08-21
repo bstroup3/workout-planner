@@ -32,7 +32,6 @@ export default function EnterWorkout() {
 
     useEffect(() => {
         if(newWorkout == null) return
-        console.log(newWorkout)
         fetch(API_URL + `users/enter/${users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0]._id}`,
         {
             method: 'PUT', 
@@ -57,7 +56,7 @@ export default function EnterWorkout() {
             const sets = []
             const date = new Date()
             const nextDay = new Date(date)
-            nextDay.setDate(date.getDate() + 1);
+            nextDay.setDate(date.getDate() + 3);
             for (let j = 0; j < workoutz.filter(workout => (workout.name == option))[0].exercises[i].sets.length; j++){
                 const weight = e.target[count].value
                 const reps = e.target[count+1].value
@@ -121,7 +120,7 @@ export default function EnterWorkout() {
                 <div className={style.mainContainer}>
                     <h2>Which workout would you like to enter?</h2>
                     <form id='workoutID' name='workoutID'>
-                        <select onChange={setWorkout}>
+                        <select onChange={setWorkout} className={style.textInput}>
                             <option value={""}></option>
                             {
                                 workoutz.filter(workout => workout.template == true && workout.userId == users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0]._id).map((workout) => {
@@ -156,7 +155,7 @@ export default function EnterWorkout() {
                 <form className={style.mainContainer} onSubmit={testFunction1}>
                     <h2>Which workout would you like to enter?</h2>
                     <form id='workoutID' name='workoutID'>
-                        <select onChange={setWorkout} value={option}>
+                        <select onChange={setWorkout} value={option} className={style.textInput}>
                             <option value={""}></option>
                             {
                                 workoutz.filter(workout => workout.template == true && workout.userId == users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0]._id).map((workout) => {
@@ -179,9 +178,9 @@ export default function EnterWorkout() {
                                             exercise.sets.map((set) => (
                                                 <div className={style.workoutRow}>
                                                     <h4>Weight:</h4>
-                                                    <input type='number' style={{marginRight: '1vw'}}/>
+                                                    <input type='number' style={{marginRight: '1vw', width: '50px'}} className={style.textInput}/>
                                                     <h4>Reps:</h4>
-                                                    <input type='number'/>
+                                                    <input type='number' style={{width: '50px'}} className={style.textInput}/>
                                                 </div>
                                             ))
                                         }

@@ -8,7 +8,7 @@ export default function Header() {
     const menuItems = [
         {
             name: 'Home',
-            to: `/login`
+            to: `/`
         },
         {
             name: 'Workout',
@@ -91,7 +91,7 @@ export default function Header() {
                             <div>
                                 <img className={style.image} src="/favicon.ico" />
                             </div>
-                            <Link className={style.button} to={`/login`}>Home</Link>
+                            <Link className={style.button} to={`/`}>Home</Link>
                             <Link className={style.button} to={`/login`}>Plan Workout</Link>
                             <Link className={style.button} to={`/login`}>Monitor Progress</Link>
                             <Link className={style.button} to={`/login`}>Set Goals</Link>

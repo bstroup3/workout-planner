@@ -95,10 +95,10 @@ export default function CreateGoals() {
                     <form className={style.goalForm}>
                         <div className={style.dropdownDiv}>
                             <label>Which workout would you like to create a new goal for?</label>
-                            <select onChange={setCurrentWorkout}>
+                            <select onChange={setCurrentWorkout} className={style.textInput}>
                                 <option value=""></option>
                                 {
-                                    workoutz.filter(workout => workout.template == true).map((workout) => (
+                                    workoutz.filter(workout => workout.template == true && workout.userId == users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0]._id).map((workout) => (
                                         <option value={workout.name} key={workout.name}>{workout.name}</option>
                                     ))
                                 }
@@ -106,17 +106,17 @@ export default function CreateGoals() {
                         </div>
                         <div className={style.dropdownDiv}>
                             <label>Which exercise would you like to create a new goal for?</label>
-                            <select disabled className={style.dropdown}>
+                            <select disabled className={style.textInput}>
                                 <option value=""></option>
                             </select>
                         </div>
                         <div className={style.dropdownDiv}>
                             <label>How many reps?</label>
-                            <input type='number' disabled/>
+                            <input type='number' disabled className={style.textInput}/>
                         </div>
                         <div className={style.dropdownDiv}>
                             <label>How much weight?</label>
-                            <input type='number' disabled/>
+                            <input type='number' disabled className={style.textInput}/>
                         </div>
                     </form>
                 </div>
@@ -142,10 +142,10 @@ export default function CreateGoals() {
                     <form className={style.goalForm} onSubmit={testFunction}>
                         <div className={style.dropdownDiv}>
                             <label>Which workout would you like to create a new goal for?</label>
-                            <select onChange={setCurrentWorkout}>
+                            <select onChange={setCurrentWorkout} className={style.textInput}>
                                 <option value=""></option>
                                 {
-                                    workoutz.filter(workout => workout.template == true).map((workout) => (
+                                    workoutz.filter(workout => workout.template == true && workout.userId == users.filter(user => user._id === window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0]._id).map((workout) => (
                                         <option value={workout.name} key={workout.name}>{workout.name}</option>
                                     ))
                                 }
@@ -153,7 +153,7 @@ export default function CreateGoals() {
                         </div>
                         <div className={style.dropdownDiv}>
                             <label>Which exercise would you like to create a new goal for?</label>
-                            <select>
+                            <select className={style.textInput}>
                                 <option value=""></option>
                                 {
                                     workoutz.filter((workout1) => (workout1.name == workout && workout1.template == true))[0].exercises
@@ -165,11 +165,11 @@ export default function CreateGoals() {
                         </div>
                         <div className={style.dropdownDiv}>
                             <label>How many reps?</label>
-                            <input type='number'/>
+                            <input type='number' className={style.textInput}/>
                         </div>
                         <div className={style.dropdownDiv}>
                             <label>How much weight?</label>
-                            <input type='number'/>
+                            <input type='number' className={style.textInput}/>
                         </div>
                         <input type='submit' className={style.button} value="Create"/>
                     </form>

@@ -16,10 +16,10 @@ export default function Login() {
             <Form className={style.mainContainer}>
                 <br/>
                 <h2 for="username">Username</h2>
-                <input id="username"/>
+                <input id="username" className={style.textInput}/>
                 <br/>
                 <h2 for="password">Password</h2>
-                <input id="password" type="password" />
+                <input id="password" type="password" className={style.textInput}/>
                 <br/>
                 <input className={style.button} type="submit" value="Log In"/>
             </Form>

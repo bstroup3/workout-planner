@@ -61,7 +61,7 @@ export default function Monitor() {
                 </div>
                 <div className={style.select}>
                     <h2>Which workout would you like to monitor?</h2>
-                    <select onChange={(event) => setWorkout(event)}>
+                    <select onChange={(event) => setWorkout(event)} className={style.textInput}>
                         <option value=""></option>
                         {
                             nameSet.map((name) => (
@@ -95,7 +95,7 @@ export default function Monitor() {
                     </div>
                     <div className={style.select}>
                         <h2>Which workout would you like to monitor?</h2>
-                        <select onChange={(event) => setWorkout(event)}>
+                        <select onChange={(event) => setWorkout(event)} className={style.textInput}>
                             <option value=""></option>
                             {
                                 nameSet.map((name) => (
@@ -121,7 +121,7 @@ export default function Monitor() {
                     </div>
                     <div className={style.select}>
                         <h2>Which workout would you like to monitor?</h2>
-                        <select onChange={(event) => setWorkout(event)}>
+                        <select onChange={(event) => setWorkout(event)} className={style.textInput}>
                             <option value=""></option>
                             {
                                 nameSet.map((name) => (
@@ -152,7 +152,7 @@ export default function Monitor() {
                 </div>
                 <div className={style.select}>
                     <h2>Which workout would you like to monitor?</h2>
-                    <select onChange={(event) => setWorkout(event)}>
+                    <select onChange={(event) => setWorkout(event)} className={style.textInput}>
                         <option value=""></option>
                         {
                             nameSet.map((name) => (
