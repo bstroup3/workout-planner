@@ -64,7 +64,7 @@ export default function EnterWorkout() {
                 await sets.push({reps, weight})
             }
             await workouts.push({
-                date: nextDay.toISOString().substring(0,10),
+                date: date.toISOString().substring(0,10),
                 sets: sets
             })
             await object.push({ename, workouts})
