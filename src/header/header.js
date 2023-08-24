@@ -28,9 +28,9 @@ export default function Header() {
 
     useEffect(() => {
         fetch(API_KEY + 'users')
-        .then((res) => res.json())
-        .then((data) => setUser(data.users.filter(user => user._id == window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0].fname))
-    },[])
+            .then((res) => res.json())
+            .then((data) => setUser(data.users.filter(user => user._id == window.location.pathname.split('/')[window.location.pathname.split('/').length - 1])[0].fname))
+    }, [])
 
     const [dropDown, setDropDown] = useState(false)
     const [user, setUser] = useState()
@@ -46,13 +46,13 @@ export default function Header() {
                                     <img className={style.image} src="/favicon.ico" />
                                 </div>
                                 <div className={style.button} onClick={() => setDropDown(dropDown == false ? true : false)}><img src={Arrow} style={{ height: '5vh', paddingRight: '13vw' }} /></div>
-                                <div style={{ display: "flex", alignItems: "center", textAlign: 'center' }}>
+                                <div style={{ display: "flex", alignItems: "center", textAlign: 'center', marginLeft: '10px' }}>
                                     <h2 className={style.headerHeader}>Workout Planner</h2>
                                 </div>
                             </div>
                             <div className={style.loginButtons}>
                                 <Link className={style.button} to={`/profile/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Profile</Link>
-                                <h4 style={{display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center', color: '#fefdfb'}}>Hello {user}!</h4>
+                                {/* <h4 style={{ display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center', color: '#fefdfb' }}>Hello {user}!</h4> */}
                             </div>
                         </div>
                         <hr className={style.headerLine}></hr>
@@ -71,19 +71,19 @@ export default function Header() {
                                 </div>
                                 <div>
                                     <div className={style.button} onClick={() => setDropDown(dropDown == false ? true : false)}><img src={Arrow} style={{ height: '5vh', paddingRight: '13vw' }} /></div>
-                                    <ul style={{ display: 'flex', flexDirection: 'column', margin: 0, padding: 0, textAlign: 'center', color: '#fefdfb'}}>
+                                    <ul style={{ display: 'flex', flexDirection: 'column', margin: 0, padding: 0, textAlign: 'center', color: '#fefdfb' }}>
                                         {menuItems.map((item) => (
                                             <Link className={style.listButton} to={item.to}>{item.name}</Link>
                                         ))}
                                     </ul>
                                 </div>
-                                <div style={{ display: "flex", alignItems: "center", textAlign: 'center' }}>
+                                <div style={{ display: "flex", alignItems: "center", textAlign: 'center', marginLeft: '20px' }}>
                                     <h2 className={style.headerHeader}>Workout Planner</h2>
                                 </div>
                             </div>
                             <div className={style.loginButtons}>
                                 <Link className={style.button} to={`/profile/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Profile</Link>
-                                <h4 style={{display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center', color: '#fefdfb'}}>Hello {user}!</h4>
+                                <h4 style={{ display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center', color: '#fefdfb' }}>Hello {user}!</h4>
                             </div>
                         </div>
                         <hr className={style.headerLine}></hr>
@@ -105,13 +105,13 @@ export default function Header() {
                             <Link className={style.button} to={`/plan/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Plan Workout</Link>
                             <Link className={style.button} to={`/monitor/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Monitor Progress</Link>
                             <Link className={style.button} to={`/goals/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Set Goals</Link>
-                            <div style={{ display: "flex", alignItems: "center" }}>
+                            <div style={{ display: "flex", alignItems: "center", marginLeft: '20px' }}>
                                 <h2 className={style.headerHeader}>Workout Planner</h2>
                             </div>
                         </div>
                         <div className={style.loginButtons}>
                             <Link className={style.button} to={`/profile/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`}>Profile</Link>
-                            <h4 style={{display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center', color: '#fefdfb'}}>Hello {user}!</h4>
+                            <h4 style={{ display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center', color: '#fefdfb' }}>Hello {user}!</h4>
                         </div>
                     </div>
                     <hr className={style.headerLine}></hr>

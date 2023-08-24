@@ -49,6 +49,7 @@ body{
     padding-top: 1%;
     padding-bottom: 1%;
     border-radius: 10px;
+    text-align: center;
 }
 .option:hover{
     background-color: #5480D9;
@@ -62,6 +63,7 @@ body{
     padding-top: 1%;
     padding-bottom: 1%;
     border-radius: 10px;
+    text-align: center;
 }
 .workoutForm{
     display: flex;
