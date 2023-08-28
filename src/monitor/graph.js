@@ -11,15 +11,12 @@ export default function Graph({ exercise, name }) {
     }
     else {
         const newWorkouts = exercise
-        console.log(newWorkouts)
         const weights =
             newWorkouts.workouts.map((workout1) => {
                 return workout1.sets.map((set) => {
                     return set.weight
                 })[newWorkouts.workouts[0].sets.length - 1]
             })
-
-        console.log(weights)
 
         const reps =
             newWorkouts.workouts.map((workout1) => {
@@ -31,10 +28,6 @@ export default function Graph({ exercise, name }) {
         const dates = newWorkouts.workouts.map((date) => (
             date.date
         ))
-        console.log(dates)
-        const metric = (weights[0] == 0) ? reps : weights
-        console.log(metric)
-
         const labels = dates
         const data = {
             labels: labels,
